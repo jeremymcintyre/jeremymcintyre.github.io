@@ -31,7 +31,7 @@ span {
 .banner {
   width: 100%;
   display: inline-block;
-  background: url(./imgs/IMG_2029.jpg) no-repeat center center fixed;
+  background: url(https://raw.githubusercontent.com/jeremymcintyre/jeremymcintyre.github.io/master/blog/imgs/IMG_2029.JPG) no-repeat center center fixed;
   background-size: cover;
 }
 
