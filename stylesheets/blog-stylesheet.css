@@ -18,8 +18,8 @@ body {
 }
 
 header {
-  width: 100%;
-  margin: 100px 0 0 0;
+  /*width: 100%;*/
+  margin: 5% 0 0 0;
 }
 
 span {
@@ -69,8 +69,10 @@ nav a:hover {
 
 header h1 {
   margin-left: 20%;
+  margin-bottom: 3%;
   width: 700px;
   font-size: 4em;
+  color: #000;
 }
 
 /*BLOG TEMPLATE*************************/
@@ -88,9 +90,11 @@ article {
   padding: 10px;
   margin-left: 20%;
   margin-right: 5%;
-  font-size: 1em;
+  font-size: 1.3em;
   line-height: 1.7em;
 }
+
+/*FOOTER*************************/
 
 footer {
   width: 100%;
