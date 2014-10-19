@@ -173,7 +173,7 @@ h4 {
   width: 100%;
   height: 400px;
   background: #cedce7;
-  background: url(../blog/imgs/lancha.JPG) no-repeat center center fixed;
+  background: url(https://raw.githubusercontent.com/jeremymcintyre/jeremymcintyre.github.io/master/blog/imgs/lancha.JPG) no-repeat center center fixed;
   background-size: cover;
   overflow: hidden;
   display: inline-block;
