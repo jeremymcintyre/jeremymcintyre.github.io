@@ -1,0 +1,217 @@
+/*General*****************/
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+html {
+  width: 100%;
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  margin: 0;
+  height: 100%;
+  font-family: Lato;
+}
+
+/*NAVIGATION BAR********************/
+
+nav {
+  font-size: 1.5em;
+  text-align: center;
+  background-color: transparent;
+  position: absolute;
+  bottom: 90%;
+  width: 100%;
+  z-index: 30;
+}
+
+nav ul li {
+  list-style: none;
+  display: inline-block;
+  margin: -3px;
+  padding: 0;
+}
+
+nav a {
+  margin: 0;
+  padding: 0 30px;
+  transition: 0.2s;
+}
+
+nav a:hover {
+  /*color: #FF9d54;*/
+  color: #FFa955;
+  font-size: 1.3em;
+  transition: 0.2s;
+  padding: 20px;
+}
+
+/*HEADER*****************************/
+
+header {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 800px;
+  background: #cedce7;
+  background: url(../blog/imgs/antigua.jpg) no-repeat top center;
+  background-size: cover;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.centerscreen {
+  max-width: 570px;
+  margin: 200px auto;
+  text-align: center;
+  z-index: 30;
+  color: #000;
+  background-color: #fff;
+  background-color: rgba(240,240,240,0.45);
+  padding-bottom: 10px;
+  font-size: 1.3em;
+}
+
+.centerscreen h1 {
+  font-size: 2em;
+}
+
+p span {
+  color: #330023;
+}
+
+.social a {
+  padding: 5px;
+  vertical-align: top;
+  margin: 0 10px;
+}
+
+/*Note that padding-top and height offset is to visually center the png image*/
+.button {
+  background-color: #ffa74e;
+  width: 50px;
+  height: 48px;
+  padding-top: 2px;
+  border: 5px solid #434343;
+  border-radius: 50%;
+  margin: 70px auto 10px auto;
+}
+
+.button:hover {
+  background-color: #ec6735;
+}
+
+.button a {
+  color: #333;
+}
+
+/********blank div******************/
+
+#linkbox {
+  display: block;
+  height: 100px;
+  color: #fff;
+}
+
+/*******ABOUT PAGE*************/
+
+/*this is to set container for how far left/right img can float*/
+
+#aboutpage {
+  /*padding-bottom: 100px;*/
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 800px;
+}
+
+.avatar {
+  max-width: 600px;
+  margin: 0 auto;
+  padding-top: 10px;
+  padding-bottom: -5px;
+}
+
+.avatar img {
+  border: 2px solid black;
+  border-radius: 50%;
+  float: right;
+  margin: 0 auto;
+}
+
+h4 {
+  text-align: center;
+  margin: 15px auto;
+  max-width: 600px;
+  font-size: 2em;
+}
+
+/*Note that actual max-width is 600px due to padding*/
+#aboutpage p {
+  max-width: 570px;
+  margin: 15px auto;
+  padding: 0 15px;
+  line-height: 1.6em;
+  font-family: Lora;
+}
+
+/*to remove padding from button*/
+#aboutpage p:last-child {
+  padding: 0;
+  margin-top: 40px;
+}
+
+
+/*****PICTURE DIV ELEMENT*********/
+
+#lancha {
+  width: 100%;
+  height: 400px;
+  background: #cedce7;
+  background: url(../blog/imgs/lancha.jpg) no-repeat center center fixed;
+  background-size: cover;
+  overflow: hidden;
+  display: inline-block;
+}
+
+
+/*****CONTACT PAGE****************/
+
+
+#contactpage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 800px;
+  text-align: center;
+}
+
+#contactpage p {
+  max-width: 570px;
+  margin: 15px auto;
+  padding: 0 15px;
+  line-height: 1.5em;
+  font-family: Lora;
+  font-size: 1.3em;
+}
+
+#contactpage h2 {
+  display: block;
+  margin-top: 100px;
+  line-height: 1.5em;
+  font-size: 3em;
+}
+
+#social-large {
+  padding: 40px;
+}
+
+#social-large img {
+  padding: 5px 15px;
+}
+
