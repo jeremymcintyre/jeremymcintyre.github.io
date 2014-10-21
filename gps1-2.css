@@ -1,0 +1,33 @@
+/* include your css here */
+
+* {
+    font-family: 'Duru Sans', sans-serif;
+  }
+
+  header {
+    height: 130px;
+    padding: 10px;
+    text-align: center;
+    background-color: steelblue;
+  }
+
+  article {
+    border: 1px solid black;
+    padding: 15px;
+    width: 500px;
+    margin: 20px auto 20px auto;
+  }
+
+  article h3 {
+    text-align: center;
+  }
+
+  img {
+    width: 500px;
+    margin: auto;
+  }
+
+  #reflect{
+    border: 5px solid #444444;
+    color: #444444;
+  }
