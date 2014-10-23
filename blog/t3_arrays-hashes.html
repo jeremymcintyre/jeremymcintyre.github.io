@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/blog-stylesheet.css">
+    <link href='http://fonts.googleapis.com/css?family=Lato|Lora' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/hybrid.min.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <title>Jeremy McIntyre | Things I learned</title>
+  </head>
+
+  <body>
+    <div class="banner">
+      <nav>
+        <ul>
+          <li><a href="http://jeremymcintyre.github.io/blog/index.html">HOME</a></li>
+          <li><a href="http://jeremymcintyre.github.io/blog/blog-index.html">BLOG</a></li>
+          <li><a href="#">PROJECTS</a></li>
+          <li><a href="http://jeremymcintyre.github.io/blog/index.html#about">ABOUT</a></li>
+          <li><a href="http://jeremymcintyre.github.io/blog/index.html#contact">CONTACT</a></li>
+        </ul>
+      </nav>
+
+      <header>
+        <h1>Things I learned while chasing dreams conceived in this lovely backdrop</h1>
+      </header>
+    </div>
+    <article>
+      <h2>Ruby arrays are sequential thinkers, hashes are associative thinkers</h2>
+      <div class="serif">
+        <h3>23 Oct 2014</h3>
+        <hr>
+        <p>I'm going to come right out and say something, and I don't expect there to be any confused looks in the room: computers need ways to organize stuff.</p>
+        <p>The fact is: Computers deal with so much information, if it wasn't organized somehow, it would be absolutely unmanageable. By the same token, computer languages need to have effective ways of organizing, handling and describing how information is grouped. (Programmers need ways of organizing information, too, otherwise they'd go crazy.)</p>
+        <p>Ruby--the wonderfully flexible, easy-to-read language that I have been learning about all summer--has some pretty standard, good ways of organizing information. The title, of course, has already given them away.</p>
+        <p>Arrays and hashes; hashes and arrays. </p>
+        <p>As the title asserts, we can think of arrays as sequential thinkers. They keep things in order, like ordered lists. Hashes, by comparison, are like associative thinkers - they remember things in pairs, with one item pointing to another. For example, they might remember that "first_name" is associated with the value "Jeremy." If you ask my example hash "What is my first_name?" it will be perfectly able to search through its unordered, associative memory and tell you that my "first_name" is, in fact, Jeremy. It's slightly more complicated, but you can also ask the hash the reverse; "What is 'Jeremy' again?" The hash will tell you "first_name".</p>
+        <p>Don't worry if this looks confusing, but here is how the above examples would look in code:</p>
+        <p>Below, we set up a hash containing my first and last name.</p>
+        <pre><code>name_hash = {'last_name' => 'McIntyre', 'first_name' => 'Jeremy'}</code></pre>
+        <p>Next, we ask "What is first_name?" Hash responds politely.</p>
+        <pre><code>name_hash['first_name']
+  => 'Jeremy'</code></pre>
+        <p>Oh, now I've forgotten what Jeremy was supposed to be. What is it again?</p>
+        <pre><code>name_hash.each_key {|key| puts key if name_hash[key] == "Jeremy"}
+  => 'first_name'</code></pre>
+        <p>As we can see, if you want to group objects in associative pairs, then hashes are the way to go. So if you wanted to map out Morse Code, you would definitely want to use a hash so that you could associate each normal alphabet letter with its Morse Code equivalent. Or, if you wanted to keep track of your friends' birthdays, you could make a hash in which each month of the year points to a list of friends who have birthdays in that month.</p>
+        <pre><code class="ruby">birthday_months = {:january => [friend, other_friend],
+  :february => [friend, other_friend, other_other_friend],
+  :march => [march_friend],
+  :april => [april_friend]
+  }
+# etc.</code></pre>
+        <p>Or you could just use Facebook. </p>
+        <p>But if you were using Ruby, you would probably use a hash for this. Then, any time you wanted to reference it, you could say "Oh, birthday_months hash, it's November now. Who has birthdays in November?" And it would easily tell you. One important note is that the hash would Not necessarily keep the months in order; remember, to the hash, order doesn't matter. We automatically remember the months in order, so we might be tempted to think that the hash does, too -- but what matters to the hash is merely what value is associated with what key. In this case, the keys are months, and the values are arrays of friends' names.</p>
+        <p>Arrays?? Yes, arrays. Arrays can live inside hashes, and those square brackets signify an array in Ruby.</p>
+        <p>Arrays would most definitely keep the months in order for you. The only initially confusing this is that computers tend to count from 0 instead of 1. So if you had no prior programming experience, you might have trouble remembering that your array considers January to be the zeroeth month.</p>
+        <pre><code>months = ["January","February","March","April",
+  "May", "June", "July", "August", "September",
+  "October","November","December"]
+
+months[0]
+  => 'January'
+months[11]
+  => 'December'
+months[12]
+  => nil</code></pre>
+        <p>Above, we create an array of the months, typing them in order because the array keeps track of order. Then we ask it what is indexed at position 0, and it says January. When we ask it what is in position 11, we get back December. Ask it what's at position 12, and we get back nil, or nothing, because there is no 13th month.</p>
+        <p>It really is as simple as we've already said: arrays are your tool when you need to organize anything where order matters. Additionally, you use them when you need to manipulate a collection of data that doesn't require the associative properties of a hash.</p>
+        <p>Let's say you want to organize the words in a sentence according to length in decreasing order. You don't really care about the order the words appeared in the sentence, but order does matter to your output, so you use an array. Again, don't worry about the code if it's confusing, but check out how this would look below.</p>
+        <p>First, we split a sentence up according to where the spaces are.</p>
+        <pre><code>words = "I hope this blog is entertaining and informative".split(" ")
+=> words = ["I", "hope", "this", "blog", "is", "entertaining", "and", "informative"]</code></pre>
+        <p>Next, we sort the array "words" by comparing the length of words.</p>
+        <pre><code>words.sort {|x,y| y.length <=> x.length}
+=> ["entertaining", "informative", "this", "hope", "blog", "and", "is", "I"]</code></pre>
+        <p>Let's try a slightly higher level example. What if you wanted to know how many of each word length there was? If you imagine your answer, you'd say something like "there is 1 one-letter word, 1 two-letter word, 1 three-letter word, 3 four-letter words, etc." You are reporting and associating values (the count) with concepts (like "three-letter words"). In this case, an array won't be super helpful. You want a hash for the output.</p>
+        <p>We start the same way, making an array. Association doesn't matter yet.</p>
+        <pre><code>words = "I hope this blog is entertaining and informative".split(" ")
+=> words = ["I", "hope", "this", "blog", "is", "entertaining", "and", "informative"]</code></pre>
+        <p>Now we want to create a new array to keep track of the lengths of the words.</p>
+        <pre><code>word_lengths = words.map {|word| word.length}
+=> [1, 4, 4, 4, 2, 12, 3, 11]</code></pre>
+        <p>Last, we want to count how many of each word length there is, and contain it in a hash. We start by making an empty hash.</p>
+        <pre><code>word_length_count = {}</code></pre>
+        <p>Now we iterate through the word_lengths array and add it to the hash if the hash doesn't include it yet, or add 1 to the count if it does.</p>
+        <pre><code>word_lengths.each do |length|
+  unless word_length_count.has_key?(length)
+    word_length_count[length] = 0
+  else
+    word_length_count[length] += 1
+  end
+end
+word_length_count</code></pre>
+        <p>Then we get our answer!</p>
+        <pre><code>=> {1=>1, 4=>3, 2=>1, 12=>1, 3=>1, 11=>1}</code></pre>
+        <p>This is a little confusing though, so lets change the keys to strings so that we can see the difference more easily. (We should have done this before making the hash! But it's okay.)</p>
+        <pre><code class="ruby">clearer_count =
+  Hash[word_length_count.map {|length,count| [length.to_s,count]} ]
+# what has it changed to?
+clearer_count
+  => {"1"=>1, "4"=>3, "2"=>1,"12"=>1, "3"=>1, "11"=>1}</code></pre>
+        <p>Great! Now we can see there is 1 twelve-letter word, 1 three-letter word, but 3 four-letter words.</p>
+        <p>As we can see from this last example, it's often appropriate to use arrays and hashes together in workflow. At each stage, we just need to keep a sense of which would be a more helpful way to keep our information stored; in an ordered, unpaired list, or an unordered, paired structure.</p>
+        <p>That's all for this intro! Hopefully this was clear and helpful. Again, don't worry about the code too much; it is just to get a taste of what it looks like. And as always, thank you for reading!</p>
+      </div>
+    </article>
+
+    <footer>
+      <a href="https://plus.google.com/u/0/113788165639624262148/posts"><img src="https://raw.githubusercontent.com/jeremymcintyre/jeremymcintyre.github.io/master/blog/imgs/google-plus-32.png" alt=""></a>
+      <a href="https://www.linkedin.com/in/jeremymcintyre"><img src="https://raw.githubusercontent.com/jeremymcintyre/jeremymcintyre.github.io/master/blog/imgs/linkedin-32.png" alt=""></a>
+      <a href="https://twitter.com/alt_jmac"><img src="https://raw.githubusercontent.com/jeremymcintyre/jeremymcintyre.github.io/master/blog/imgs/twitter-32.png" alt=""></a>
+      <a href="https://github.com/jeremymcintyre"><img src="https://raw.githubusercontent.com/jeremymcintyre/jeremymcintyre.github.io/master/blog/imgs/github-32.png" alt=""></a>
+    </footer>
+
+
+  </body>
+
+
+</html>
