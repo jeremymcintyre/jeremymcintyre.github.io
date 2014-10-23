@@ -96,7 +96,7 @@ word_length_count</code></pre>
         <pre><code>=> {1=>1, 4=>3, 2=>1, 12=>1, 3=>1, 11=>1}</code></pre>
         <p>This is a little confusing though, so lets change the keys to strings so that we can see the difference more easily. (We should have done this before making the hash! But it's okay.)</p>
         <pre><code class="ruby">clearer_count =
-  Hash[word_length_count.map {|length,count| [length.to_s,count]} ]
+  Hash[word_length_count.map {|length, count| [length.to_s, count]} ]
 # what has it changed to?
 clearer_count
   => {"1"=>1, "4"=>3, "2"=>1,"12"=>1, "3"=>1, "11"=>1}</code></pre>
