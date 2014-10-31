@@ -88,12 +88,12 @@ article a {
 }
 
 h2 {
-  font-size: 1.7em;
+  font-size: 1.3em;
   line-height: 1.3em;
 }
 
 h2 a {
-  color: black;
+  color: #414141;
 }
 
 h2 a:hover{
@@ -109,7 +109,7 @@ article {
   padding: 10px;
   margin-left: 20%;
   margin-right: 5%;
-  font-size: 1.0em;
+  font-size: 0.9em;
   line-height: 1.7em;
   margin-bottom: 25px;
 }
