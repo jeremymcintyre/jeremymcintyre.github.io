@@ -209,6 +209,7 @@ h4 {
   font-size: 1.3em;
 }
 
+
 #contactpage h2 {
   display: block;
   margin-top: 100px;
@@ -224,3 +225,12 @@ h4 {
   padding: 5px 15px;
 }
 
+#to-top {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 1% 0;
+  font-size: 1.3em;
+  background-color: rgba(30,30,30,0.4);
+}
