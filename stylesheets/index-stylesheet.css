@@ -65,7 +65,7 @@ header {
   display: inline-block;
 }
 
-.centerscreen {
+#centermain {
   max-width: 570px;
   margin: 200px auto;
   text-align: center;
@@ -78,12 +78,12 @@ header {
   border: 6px solid #330023;;
 }
 
-.centerscreen h1 {
+#centermain h1 {
   font-size: 2em;
   color: #330023;
 }
 
-.centerscreen p:first-child {
+#centermain p:first-child {
   margin: 0 30px;
 }
 
