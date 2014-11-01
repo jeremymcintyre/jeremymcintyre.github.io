@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/blog-stylesheet.css">
+    <link href='http://fonts.googleapis.com/css?family=Lato|Lora' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/hybrid.min.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <title>Jeremy McIntyre | Things I learned</title>
+  </head>
+
+  <body>
+    <div class="banner">
+      <nav>
+        <ul>
+          <li><a href="http://jeremymcintyre.github.io/blog/index.html">HOME</a></li>
+          <li><a href="http://jeremymcintyre.github.io/blog/blog-index.html">BLOG</a></li>
+          <li><a href="http://jeremymcintyre.github.io/blog/projects.html">PROJECTS</a></li>
+          <li><a href="http://jeremymcintyre.github.io/blog/index.html#about">ABOUT</a></li>
+          <li><a href="http://jeremymcintyre.github.io/blog/index.html#contact">CONTACT</a></li>
+        </ul>
+      </nav>
+
+      <header>
+        <h1>Things I learned while chasing dreams conceived in this lovely backdrop</h1>
+      </header>
+    </div>
+    <article>
+      <h2>Ruby has some sweet built-in methods. Here's a look at <code>#group_by</code></h2>
+      <div class="serif">
+        <h3>31 Oct 2014</h3>
+        <hr>
+
+        <p>Methods in Ruby are grouped by class or module. One particularly useful module is called <code>Enumerable</code>, which provides all sorts of iterative and sorting capabilities. Many of the methods we use on <a href="http://jeremymcintyre.github.io/blog/t3_arrays-hashes.html">arrays and hashes</a> come from the <code>Enumerable</code> module.</p>
+        <p>In this reflection, it was my job to research an <code>Enumerable</code> method and present it to you, the reader. So at this point we are going to take a little dive into the method <code>#group_by.</code></p>
+        <p>Ruby once again succeeds at readability, as I'm sure without even saying anything that you have some notion of what the method does: it groups things according to...well, <code>group_by</code> what? It doesn't say, so we probably get to tell the method how we want to group things. Depending on how much experience you have with other Ruby methods, you might even guess that our grouping instructions are given in the form of a code block. And, for anyone familiar with Ruby's <a href="http://jeremymcintyre.github.io/blog/t3_arrays-hashes.html">different ways of organizing information</a>, let's speculate that it will return our stuff grouped associatively; in a hash.</p>
+        <p>Not all of this would be intuitive to everyone, and certainly not without a certain level of comfort and experience dealing with Ruby. But it does go to show that a well-named method can really provide a lot of clues about how it is meant to operate, and in fact all of our guesses from the previous paragraph are spot-on.</p>
+        <p>Let's take a look at the example given in <a href="http://ruby-doc.org/core-2.1.4/Enumerable.html#method-i-group_by">ruby-docs:</a></p>
+        <pre><code>(1..6).group_by {|number| number % 3 }
+  #=> {0=>[3,6], 1=>[1,4], 2=>[2,5]} </code></pre>
+        <p>Here, we call the method on a range <code>(1..6)</code>. For anyone unfamiliar with a code block, it is the part surrounded by curly braces, and it says: "for each <code>number</code>, what is the remainder after dividing it by 3?" In other words, we are telling our method to group the numbers in the specified range according to what their remainder is when divided by <code>3</code>. Our grouped answer is reported in the hash on the second line, which tells us that <code>3</code> and <code>6</code> both have zero remainder, <code>1</code> and <code>4</code> each have a remainder of <code>1</code>, and <code>2</code> and <code>5</code> both have a remainder of <code>2</code>. The results of the code block become the keys of the hash!</p>
+        <p>Let's take a look at two more examples. In the first, we'll group words according to their length, and in the second, we will call the method without specifying a code block and see what happens.</p>
+        <pre class="ruby"><code>["This", "method", "is", "super", "cool"].group_by {|word| word.length }
+  #=> {4=>["This", "cool"], 6=>["method"], 2=>["is"], 5=>["super"]}</code></pre>
+        <p>Here, the array calls the method and the code block dictates that we want to group words according to their length, as we see in the result.</p>
+        <p>For our last example, we won't pass a code block to the method, just to see what happens.</p>
+        <pre class="ruby"><code>("a".."z").group_by
+  #=> # Enumerator: "a".."z":group_by </code></pre>
+        <p>As we see, it just returns an enumerator if no code block is given. For our purposes, it is necessary to pass a code block if we are to make this method useful to us.</p>
+        <p>Anyway, that's it! I think this method is really cool - and it's a new one for me! - so I'm happy to share it. I hope you enjoyed learning about it, and that you find it useful in the future!</p>
+        <p>All the best! Have a nice day now.</p>
+        <a href="http://jeremymcintyre.github.io/blog/blog-index.html">back</a>
+      </div>
+    </article>
+
+    <footer>
+      <a href="https://plus.google.com/u/0/113788165639624262148/posts"><img src="https://raw.githubusercontent.com/jeremymcintyre/jeremymcintyre.github.io/master/blog/imgs/google-plus-32.png" alt=""></a>
+      <a href="https://www.linkedin.com/in/jeremymcintyre"><img src="https://raw.githubusercontent.com/jeremymcintyre/jeremymcintyre.github.io/master/blog/imgs/linkedin-32.png" alt=""></a>
+      <a href="https://twitter.com/alt_jmac"><img src="https://raw.githubusercontent.com/jeremymcintyre/jeremymcintyre.github.io/master/blog/imgs/twitter-32.png" alt=""></a>
+      <a href="https://github.com/jeremymcintyre"><img src="https://raw.githubusercontent.com/jeremymcintyre/jeremymcintyre.github.io/master/blog/imgs/github-32.png" alt=""></a>
+    </footer>
+
+
+  </body>
+
+
+</html>
