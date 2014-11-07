@@ -94,7 +94,10 @@ Nice! That is a beautiful Gibston J-45.
 
         <pre><code>def brand
   @brand
-end</code></pre>
+end
+
+my_guitar.brand
+=> "Gibson"</code></pre>
 
         <p>For <code>@brand_of_strings</code>, we have both a reader and a writer method. The reader method tells us what brand of strings we have, while the writer method <code>brand_of_strings=(company_name)</code> allows us to assign what company makes the strings. This makes sense, because strings are impermanent and we might decide we want to start using a different brand of strings with our real guitar. On the other hand, we do not have writer methods for the <code>brand</code> or <code>model</code>, because once a guitar is made, it's brand and model type do not change! We want our Ruby class model to reflect this reality, so we do not make them writeable.</p>
 
