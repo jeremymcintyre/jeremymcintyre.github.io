@@ -133,8 +133,6 @@ footer img {
 }
 
 footer img:hover {
-  margin-top: -15px;
-  /*background-color: #777;*/
-  /*background-color: rgba(199,169,0,0.35);*/
-  transition: 0.5s, ease;
+  margin-top: -7px;
+  transition: 0.1s, ease;
 }
