@@ -107,6 +107,17 @@ article {
   color: #777777;
 }
 
+pre {
+  background-color: #c0b4a3;
+  line-height: 1.5em;
+  white-space: pre-wrap;
+}
+
+code {
+  color: #453116;
+  font-size: 1em;
+}
+
 /*FOOTER*************************/
 
 footer {
