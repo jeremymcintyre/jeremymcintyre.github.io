@@ -115,7 +115,9 @@ pre {
 
 code {
   color: #453116;
-  font-size: 1em;
+  font-size: 1.05em;
+  background-color: #ccc4b9;
+  padding: 0 4px;
 }
 
 /*FOOTER*************************/
