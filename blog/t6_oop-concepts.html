@@ -37,20 +37,19 @@
 
         <p>Another complementary idea is the <a href="http://en.wikipedia.org/wiki/Single_responsibility_principle">Single Responsibility Principle (SRP)</a>, which suggests that each class or method should have a single responsibility. This promotes modularity further, since we aren't faced with dissecting simple behaviors out of more complex chunks of behavior when we want to reuse them.</p>
 
-        <p>Last before we get to the heart of our subject matter is the <a href="http://en.wikipedia.org/wiki/Law_of_Demeter">Law of Demeter (LoD)</a>. It came out of Northeastern University (my alma mater!) back in the late '80s, and basically promotes loose coupling. I like to think of it as the "Law of Making Your Code Run Like An Intelligence Agency," since it holds that units of code should know as little as possible about other units of code, communicate on a need-to-know basis only, and not talk to units of code that they have no business talking to. This prevents bugs and other problems from arising by minimizing illogical or promiscuous dependencies (entanglements) in your code.</p>
+        <p>Last before we get to the heart of our subject matter is the <a href="http://en.wikipedia.org/wiki/Law_of_Demeter">Law of Demeter (LoD)</a>. It came out of Northeastern University (my alma mater!) back in the late '80s, and basically promotes loose coupling. I like to think of it as the "Law of Making Your Code Run Like An Intelligence Agency," since it dictates that units of code should know as little as possible about other units of code, communicate on a need-to-know basis only, and not talk to units of code that they have no business talking to. This prevents bugs and other problems from arising by minimizing illogical or promiscuous dependencies (entanglements) in your code.</p>
 
         <p>Great! We are now ready to start introducing our subject matter. Please go ahead and keep this stuff in the back of your mind &mdash; we'll tie it in as we go.</p>
 
         <img src="./imgs/OcelotNirvana2013.jpg" alt="original source is http://bigcatrescue.org/wp-content/uploads/2013/02/OcelotNirvana2013.jpg">
 
-        <p>Inheritance and composition are two Object-Oriented Programming (OOP) concepts that support the reuse of code. Inheritance creates relationships described in terms of "is-a," as in <code>Ocelot</code> "is-a" <code>Cat</code>. Composition creates relationships articulated in terms of "has-a," which are much more flexible than ones forged through inheritance. However, since inheritance is the easier one to explain, we'll start there.</p>
+        <p>Inheritance and composition are two Object-Oriented Programming (OOP) concepts that enable the sharing or reuse of code. Inheritance creates relationships described in terms of "is-a," as in <code>Ocelot</code> "is-a" <code>Cat</code>. Composition creates relationships articulated in terms of "has-a," which are much more flexible than ones forged through inheritance. However, since inheritance is the easier one to explain, we'll start there.</p>
 
         <pre><code>
 class Cat
-  attr_reader :what_am_i
 
-  def initialize
-    @what_am_i = "I'm a cat."
+  def what_am_i?
+    "I'm a cat."
   end
 
 end
@@ -58,16 +57,16 @@ end
 class Ocelot < Cat
 end
         </code></pre>
-        <p>The benefit of inheritance is that it decreases redundancy in code by allowing child classes to inherit common general, abstract behaviors from a parent class. We may never want to directly create an instance of <code>Cat</code>, so it remains an abstract holding area for behaviors that would be useful for any class that "is-a" <code>Cat</code> to inherit. Since <code>Ocelot</code> "is-a" <code>Cat</code>, it inherits access to all the code within <code>Cat</code>.</p>
+        <p>The benefit of inheritance is that it decreases redundancy in code by allowing child classes to inherit common general behaviors from a parent class. We may never want to directly create an instance of <code>Cat</code>, so it remains an abstract holding area for behaviors that would be useful for any class that "is-a" <code>Cat</code> to inherit. Since <code>Ocelot</code> is indeed a <code>Cat</code>, it inherits access to all the code within <code>Cat</code>.</p>
 
         <pre><code>
 tufted_ears = Ocelot.new
-tufted_ears.what_am_i
+tufted_ears.what_am_i?
 
 => "I'm a cat."
         </code></pre>
 
-        <p>Another useful benefit of inheritance is that children classes can override methods from the parent class, or change them to make them more specialized. Take a look again below:</p>
+        <p>Another useful benefit of inheritance is that children classes can explicitly override methods from the parent class, or change them to make them more specialized. Take a look again below:</p>
 
         <pre><code>
 class Cat
@@ -78,62 +77,71 @@ end
 
 class Ocelot < Cat
   def what_am_i?
-    super + "..or more specifically, an ocelot."
+    super + "..and more specifically, an ocelot."
   end
 end
 
-generic = Cat.new
-tufted_ears = Ocelot.new
 
+
+generic = Cat.new
 generic.what_am_i?
 => "I'm a cat."
 
+tufted_ears = Ocelot.new
 tufted_ears.what_am_i?
-=> "I'm a cat...or more specifically, an ocelot."
+=> "I'm a cat...and more specifically, an ocelot."
         </code></pre>
-        <p>Inheritance is D.R.Y. since it cuts down on redundant code and helps keep classes modular...and I suppose it can be pretty effective in conjunction with Single Responsibility Principle...but what about the Law of Making Your Code Run Like An Intelligence Agency (LoD)? So long as the "is-a" relationship remains true, inheritance is fine; the need-to-know basis is real because the child classes are specialized extensions of the parent class. However, the minute this starts to change, red flags should go up. Many smarter and more experienced voices will tell you that as projects develop, classes that started out seemingly sharing an "is-a" relationship eventually diverge enough where that sort of relationship doesn't really make sense any more...and becomes an ungainly burden. It's situations like those that make them prefer composition over inheritance.</p>
+        <p>Inheritance is D.R.Y. since it cuts down on redundant code and helps keep classes modular...and I suppose it can be pretty effective in conjunction with Single Responsibility Principle...but what about the Law of Making Your Code Run Like An Intelligence Agency (LoD)?</p>
 
-        <p>Whereas inheritance involves giving one class complete and immediate knowledge of another class, composition does not. Instead, it uses classes or modules directly in order to accomplish what it needs. It is best served with an example, so let's use composition such that <code>Ocelot</code> "has-a" <code>Cat</code>.</p>
+        <p>So long as the "is-a" relationship remains true, inheritance is fine; the need-to-know basis is real because the child classes are specialized extensions of the parent class. However, the minute this starts to change, red flags should go up; if a child isn't really a child, then it knows wayyy too much about its (not-actual-) parent class.</p>
+
+        <p> Many more experienced voices than mine will tell you that as projects develop, classes that once seemed to share an "is-a" relationship eventually diverge enough where that sort of relationship doesn't really make sense any more. When that happens, those relationships can become an ungainly burden that is costly to change, or cumbersome to work around. It's situations like those that make composition seem preferable.</p>
+
+        <p>Whereas inheritance involves giving one class complete and immediate knowledge of another class, composition does not. Instead, it uses classes or modules directly in order to accomplish what it needs. It is best served with an example, so let's use composition such that <code>Ocelot</code> "has-a" <code>Cat</code> that it can use without indiscriminately inheriting all of its behavior into the class.</p>
 
         <pre><code>
 class Cat
-  def identity
-    "Cat"
-  end
-
   def purr
     "purrr"
   end
 end
+
 
 class Ocelot
   def initialize
     @cat = Cat.new
   end
 
-  def i_have_a
-    @cat.identity
-  end
-
   def make_sound
     @cat.purr
   end
+
+  def growl
+    "RARRR"
+  end
 end
 
-little_spots = Ocelot.new
-little_spots.i_have_a
-=> "Cat"
 
+
+little_spots = Ocelot.new
 little_spots.make_sound
 => "purrr"
+
+little_spots.growl
+=> "RARRR"
+
+little_spots.purr
+=>NoMethodError: undefined method 'purr'
         </code></pre>
-        <p>As you can see, Ocelot initializes an instance of <code>Cat</code> and uses it directly by storing it in an instance variable. This way, the class does not have immediate knowledge or access to all methods of <code>Cat</code>...only the ones that we call on the instance variable, and then only from within methods of <code>Ocelot</code>. So <code>little_spots.identity</code> will throw an error because <code>Ocelot</code> did not inherit from <code>Cat</code>, it just uses an instance of it. See how this is much more of a need-to-know basis? It decouples the two classes much more than inheritance does, while also providing sharing of specific, relevant behaviors. This flexibility is what makes composition an oft-preferred alternative to inheritance.</p>
+        <p>As you can see, <code>Ocelot</code> initializes an instance of <code>Cat</code> and uses it directly by storing it in an instance variable. This way, <code>Ocelot</code> does not have immediate knowledge or access to all methods of <code>Cat</code>...only the ones that we call on the instance variable, and then only from within methods of <code>Ocelot</code>.</p>
 
-        <p>There we have it. I won't go into it here, but using Modules is also composition. And, while inheritance is cool, initially convenient, and sometimes totally appropriate, I think the answer to our title is that composition is my code-sharing favorite.</p>
+        <p>So: <code>little_spots.purr</code> throws an error because <code>Ocelot</code> did not inherit from <code>Cat</code>, but <code>Ocelot</code> selectively integrates the functionality of <code>purr</code> by calling it on the instance of <code>@cat</code> within its own method <code>make_sound</code>. See how this is much more on a need-to-know basis? It keeps tighter control on how much is shared, while also sharing specific, relevant behaviors. This flexibility is what makes composition an oft-preferred alternative to inheritance.</p>
 
-        <p>As always, beware of sweeping declarations and the like &mdash; and be sure to consider inheritance and composition for yourself. I will continue to do the same.</p>
+        <p>There we have it. I won't go into it here, but I should mention that using Modules is also composition. And, while inheritance is cool, initially convenient, and sometimes completely appropriate &mdash; well, I think you can decide where I'm going from the title.</p>
 
-        <p>Hope this was helpful, and thanks for reading!</p>
+        <p>As always, beware of sweeping declarations and the like &mdash; and be sure to consider inheritance and composition for yourself! I will continue to do the same.</p>
+
+        <p>Hope this was helpful, and as always, thanks for reading!</p>
 
         <a href="http://jeremymcintyre.github.io/blog/blog-index.html">back</a>
       </div>
