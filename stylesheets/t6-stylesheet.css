@@ -1,0 +1,14 @@
+
+
+pre {
+  background-color: #b5bab4;
+  line-height: 1.5em;
+  white-space: pre-wrap;
+}
+
+code {
+  color: #2d2c31;
+  font-size: 1.05em;
+  background-color: #b5bab4;
+  padding: 0 4px;
+}
