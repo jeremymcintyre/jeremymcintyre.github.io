@@ -57,7 +57,7 @@ end
 class Ocelot < Cat
 end
         </code></pre>
-        <p>The benefit of inheritance is that it decreases redundancy in code by allowing child classes to inherit common general behaviors from a parent class. We may never want to directly create an instance of <code>Cat</code>, so it remains an abstract holding area for behaviors that would be useful for any class that "is-a" <code>Cat</code> to inherit. Since <code>Ocelot</code> is indeed a <code>Cat</code>, it inherits access to all the code within <code>Cat</code>.</p>
+        <p>The benefit of inheritance is that it decreases redundancy in code by allowing child classes to inherit common general behaviors from a parent class. We may never want to directly create an instance of <code>Cat</code>, so it remains an abstract holding area for behaviors that would be useful to inherit for any class that "is-a" <code>Cat</code>. Since <code>Ocelot</code> is indeed a <code>Cat</code>, it inherits access to all the code within <code>Cat</code>.</p>
 
         <pre><code>
 tufted_ears = Ocelot.new
