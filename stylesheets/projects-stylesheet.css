@@ -87,6 +87,10 @@ header {
   margin: 0 30px;
 }
 
+#centermain a {
+  color: purple;
+}
+
 p span {
   color: #330023;
 }
