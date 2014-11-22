@@ -262,10 +262,27 @@ document.onkeydown = fly;
 
 
 // Reflection
-//
-//
-//
-//
-//
-//
-//
+
+/*
+
+I learned a lot from this challenge. I started out really basic with my getBasket(), addRabbit(), and rabbitCount()
+functions with some driver code to make sure they were working correctly. That actually didn't take too long, but I
+did need to fix my syntax a few times, so it was definitely helpful to keep cementing my grasp on that.
+
+Next I wanted to extend my initial solution to experiment with manipulating objects on the DOM. In order to do
+this, I had to first build a page with some images and a game box, which I did. Creating the gamescreen reminded me
+that absolute positioning is only relative to the parent div if the parent div features positioning other than
+static. Once I did this, I got my icons placed and sized appropriately according to how I wanted them to begin.
+
+Now came the fun, and also more difficult part. The first thing to do was tackle getting my hawk icon to move. I
+learned how to set variables to point to DOM elements using getElementById, and how to change css style values
+using the style property. Later I realized that I also needed to tell when to execute the fly function, which I did
+by incorporating document.onkeydown = fly. Since this was basically the only interaction that told functions to
+execute, I had to fold my other functions like pickupBasket(), catchRabbit(), and win() into the end of the fly
+function.
+
+When refactoring, I tried to extract out single responsibility. I made separate flyUp, flyDown, etc. functions, and
+also a storeItem() function to get icons offscreen in an orderly way. Whenever I wasn't sure of whether something
+was working, I added an alert or confirm just to check that it was interacting when I expected it to.
+
+*/
