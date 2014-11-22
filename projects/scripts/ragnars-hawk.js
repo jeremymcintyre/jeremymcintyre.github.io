@@ -43,7 +43,7 @@
 // After getting these working, set up HTML and experiment with other methods
 
 // Initial Code
-
+/*
 var hawk = {};
 var basket = {};
 var ragnar = {};
@@ -145,11 +145,132 @@ var win = function() {
 
 
 document.onkeydown = fly;
-
+*/
 
 // Refactored Code
 
+var hawk = {};
+var basket = {};
+var hawkIcon = document.getElementById("ragnarsHawk");
+var basketIcon = document.getElementById("basket");
+var rabbit1Icon = document.getElementById("rabbit1");
+var rabbit2Icon = document.getElementById("rabbit2");
+var rabbit3Icon = document.getElementById("rabbit3");
 
+var getBasket = function() {
+  hawk.basket = basket;
+};
+
+var haveBasket = function() {
+  if (hawk.basket) { return true; }
+  else { return false; }
+};
+
+var addRabbit = function() {
+  if (!basket.rabbits)
+    basket.rabbits = 1;
+  else
+    basket.rabbits++;
+};
+
+var rabbitCount = function() {
+  return basket.rabbits;
+};
+
+
+
+
+
+var fromBottom = 0;
+var fromRight = 0;
+
+var flyLeft = function() {
+  if (!haveBasket) {
+    fromRight += 75;
+    hawkIcon.style.right = fromRight + "px";
+  }
+};
+var flyUp = function() {
+  if (!haveBasket) {
+    fromBottom += 75;
+    hawkIcon.style.bottom = fromBottom + "px";
+  }
+};
+var flyRight = function() {
+  fromRight -= 75;
+  hawkIcon.style.right = fromRight + "px";
+};
+var flyDown = function() {
+  fromBottom -= 75;
+  hawkIcon.style.bottom = fromBottom + "px";
+};
+
+
+
+
+var fly = function(keystroke) {
+  if ((keystroke.keyCode === 37) && (fromRight < 525)) { flyLeft(); }
+  else if ((keystroke.keyCode === 38) && (fromBottom < 525)) { flyUp(); }
+  else if ((keystroke.keyCode === 39) && (fromRight > 0)) { flyRight(); }
+  else if ((keystroke.keyCode === 40) && (fromBottom > 0)) { flyDown(); }
+  pickupBasket();
+  catchRabbit();
+  win();
+};
+
+
+
+var storeItem = function(id, relativeBottom) {
+  id.style.right = "700px";
+  id.style.bottom = relativeBottom + "px";
+};
+
+var pickupBasket = function() {
+  if ((fromBottom === 525) && (fromRight === 525)) {
+    var pickup = confirm("Do you want to pick up the basket?");
+    if (pickup) {
+      getBasket();
+      storeItem(basketIcon, 525);
+    }
+  }
+};
+
+var atRabbit = function(rabbit) {
+  if (((fromBottom + "px") === rabbit.style.bottom) && ((fromRight + "px") === rabbit.style.right)) {
+    return true;
+  }
+};
+
+var catchRabbit = function() {
+  if (hawk.basket) {
+    if (atRabbit(rabbit1Icon)) {
+      addRabbit();
+      storeItem(rabbit1Icon, 450);
+    }
+    else if (atRabbit(rabbit2Icon)) {
+      addRabbit();
+      storeItem(rabbit2Icon, 375);
+    }
+    else if (atRabbit(rabbit3Icon)) {
+      addRabbit();
+      storeItem(rabbit3Icon, 300);
+    }
+  }
+};
+
+var win = function() {
+  if ((fromRight === 0) && (fromBottom === 0)) {
+    if (rabbitCount() === 2) {
+      alert("You returned to Ragnar with 2 rabbits and helped him survive! You win!");
+    }
+    else {
+      alert("You failed to bring Ragnar 2 rabbits. Try again by reloading the page.");
+    }
+  }
+};
+
+
+document.onkeydown = fly;
 
 
 
