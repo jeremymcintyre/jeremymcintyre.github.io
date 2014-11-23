@@ -151,7 +151,6 @@ document.onkeydown = fly;
 
 var hawk = {};
 var basket = {};
-var ragnar = {};
 var hawkIcon = document.getElementById("ragnarsHawk");
 var basketIcon = document.getElementById("basket");
 var rabbit1Icon = document.getElementById("rabbit1");
