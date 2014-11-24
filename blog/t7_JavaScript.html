@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/blog-stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/t7-stylesheet.css">
+    <link href='http://fonts.googleapis.com/css?family=Lato|Lora' rel='stylesheet' type='text/css'>
+    <title>Jeremy McIntyre | Things I learned</title>
+  </head>
+
+  <body>
+    <div class="banner">
+      <nav>
+        <ul>
+          <li><a href="http://jeremymcintyre.github.io/blog/index.html">HOME</a></li>
+          <li><a href="http://jeremymcintyre.github.io/blog/blog-index.html">BLOG</a></li>
+          <li><a href="http://jeremymcintyre.github.io/projects/projects.html">PROJECTS</a></li>
+          <li><a href="http://jeremymcintyre.github.io/blog/index.html#about">ABOUT</a></li>
+          <li><a href="http://jeremymcintyre.github.io/blog/index.html#contact">CONTACT</a></li>
+        </ul>
+      </nav>
+
+      <header>
+        <h1>Things I learned while chasing dreams conceived in this lovely backdrop</h1>
+      </header>
+    </div>
+    <article>
+      <h2>Ruby hashes and JavaScript objects: how similar are they?</h2>
+      <div class="serif">
+        <h3>23 Nov 2014</h3>
+        <hr>
+        <p>This week I began learning JavaScript, and I must say I like it a lot. It feels very different from Ruby, but also familiar. There are plenty of functional and syntactical contrasts to be made, but also elements that even look somewhat similar at first glance. One example of this is in the comparison between Ruby hashes and JavaScript objects.</p>
+        <p>In a lot of ways, they are pretty similar. Look at them!</p>
+        <pre class="ruby"><code>  # Ruby
+
+  my_hash = {penguins: 42, porpoises: 12}
+  => {:penguins => 42, :porpoises => 12}
+        </code></pre>
+        <pre class="js"><code>  // JavaScript
+
+  myObject = {penguins: 42, porpoises: 12};
+  > {penguins: 42, porpoises: 12}
+        </code></pre>
+        <p>Both of them are dictionary-like structures with associated pairs, the first of each pointing to the second; both are also objects (following Ruby's almost-true "everything-is-an-object" model); and, both allow their values to be changed. However, there are also a number of differing features between the two.</p>
+        <p>A good place to start might be "how to talk about them." In Ruby hashes, the first part of each pair is called a key, which would be similar to a property in a JavaScript object.</p>
+        <pre class="ruby"><code>
+  {key1 => value1, key2 => value2}
+        </code></pre>
+        <pre class="js"><code>
+  {property1: somethingHere, property2: somethingElse}
+        </code></pre>
+        <p>Keys point to "values" in hashes, which can be anything from Boolean values to Fixnums, Floats, Strings, Arrays or other Hashes. A JavaScipt object's properties can similarly store numbers, arrays, Boolean values, other objects, or even functions. Storing methods in hashes is unsuccessful, because Ruby tries to evaluate the method and then store the result, whereas properties can store functions and use them in a way syntactically reminiscent of calling a method on a Ruby class.</p>
+        <pre class="ruby"><code>
+  def hello_from_hash
+    "Hi"
+  end
+
+  hash = {my_method: hello_from_hash}
+  => {my_method: "Hi"}
+        </code></pre>
+        <pre class="js"><code>
+var myObj = {};
+myObj.hello = function() {
+  console.log("Hello, " + name + "!");
+}
+
+myObj.hello("dear Reader")
+> "Hello, dear Reader!"
+        </code></pre>
+        <p>As you can see, there are plenty of differences between Hashes and JavaScript Objects.</p>
+
+        <a href="http://jeremymcintyre.github.io/blog/blog-index.html">back</a>
+      </div>
+    </article>
+
+    <footer>
+      <a href="https://plus.google.com/u/0/113788165639624262148/posts"><img src="https://raw.githubusercontent.com/jeremymcintyre/jeremymcintyre.github.io/master/blog/imgs/google-plus-32.png" alt=""></a>
+      <a href="https://www.linkedin.com/in/jeremymcintyre"><img src="https://raw.githubusercontent.com/jeremymcintyre/jeremymcintyre.github.io/master/blog/imgs/linkedin-32.png" alt=""></a>
+      <a href="https://twitter.com/alt_jmac"><img src="https://raw.githubusercontent.com/jeremymcintyre/jeremymcintyre.github.io/master/blog/imgs/twitter-32.png" alt=""></a>
+      <a href="https://github.com/jeremymcintyre"><img src="https://raw.githubusercontent.com/jeremymcintyre/jeremymcintyre.github.io/master/blog/imgs/github-32.png" alt=""></a>
+    </footer>
+
+
+  </body>
+
+
+</html>
