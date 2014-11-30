@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/blog-stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/t8-stylesheet.css">
+    <link href='http://fonts.googleapis.com/css?family=Lato|Lora:400,400italic' rel='stylesheet' type='text/css'>
+    <title>Jeremy McIntyre | Things I learned</title>
+  </head>
+
+  <body>
+    <div class="banner">
+      <nav>
+        <ul>
+          <li><a href="http://jeremymcintyre.github.io/blog/index.html">HOME</a></li>
+          <li><a href="http://jeremymcintyre.github.io/blog/blog-index.html">BLOG</a></li>
+          <li><a href="http://jeremymcintyre.github.io/projects/projects.html">PROJECTS</a></li>
+          <li><a href="http://jeremymcintyre.github.io/blog/index.html#about">ABOUT</a></li>
+          <li><a href="http://jeremymcintyre.github.io/blog/index.html#contact">CONTACT</a></li>
+        </ul>
+      </nav>
+
+      <header>
+        <h1>Things I learned while chasing dreams conceived in this lovely backdrop</h1>
+      </header>
+    </div>
+    <article>
+      <h2>The "what" and "how" of the Internet</h2>
+      <div class="serif">
+        <h3>29 Nov 2014</h3>
+        <hr>
+        <p>Most people are comfortable with their understanding of what the internet is, and are content to know that it works without knowing precisely <span>how</span> or <span>why</span> it works.</p>
+        <p>In stopping to think about it, one could suppose that it is a network of interconnected networks. This much seems obvious from its name.</p>
+        <p>But perhaps it is less intuitive to think of the internet as a system of hardware and protocols. Yet that is precisely what the internet is made of: hardware, and protocols that tell hardware how to handle information.</p>
+        <p>Many sources seem to explain the internet in a <span>from-the-ground-up</span> fashion, starting with your personal computer and ending in the higher level connections of hardware and protocols. In the interest of a fresh perspective, I am going to do the exact opposite.</p>
+
+        <h4>Internet Hardware and Infrastructure</h4>
+
+        <p>The highest level of our top-down heirarchy is the Network Service Provider (NSP). Each NSP is like the king or queen of its kingdown, and can handle all of the traffic from devices connected to its networks. Their hardware forms a high level internet backbone. If two computers are connected to networks under the same NSP, their communications would <span>at most</span> have to travel up to the level of NSP hardware (i.e. cables) before being routed back down the heirarchy to the appropriate destination computer.</p>
+        <p>However, because every device connected to the internet can theoretically communicate with any other device connected to the internet, these massive NSP corporations must have the ability to share traffic so that a computer under one NSP can communicate to a computer connected to any other NSP's networks. In order for this to be possible, there are agreements for the free transfer of information between NSPs at places called Internet Exchange points (IXs) of the two varieties: Network Access Points (NAPs), and their privately-owned equivalents, Metropolitan Area Exchanges (MAEs).</p>
+        <p>So, we know that Network Service Providers share information traffic to make global communication possible. Now let's focus on the heirarchy under a single NSP.</p>
+        <table id="infra">
+          <thead>
+            <th colspan="3"> Internent Exchange Points (IXs)
+              <p><span>Network Access Points (NAPs), Metropolitan Area Exchanges (MAEs)</span></p>
+            </th>
+          </thead>
+          <tr>
+            <td>Network Service Provider (NSP)</td>
+            <td></td>
+            <td>Another Network Service Provider (NSP)...</td>
+          </tr>
+          <tr>
+            <td>Regional Internet Service Providers (ISPs)</td>
+          </tr>
+          <tr>
+            <td>Local ISPs</td>
+          </tr>
+          <tr>
+            <td>Wide Area Network (WAN)</td>
+          </tr>
+          <tr>
+            <td>Local Area Network (LAN)</td>
+          </tr>
+          <tr>
+            <td>Laptops, smartphones, tablets, computers, etc.</td>
+          </tr>
+        </table>
+        <p>Below each Network Service Provider there are a number of smaller Internet Service Providers (ISPs), which manage smaller networks. For example, an NSP might have regional ISPs under it, and local ISPs under those. ISPs either have their own networks and internet hardware backbones, or rent bandwidth from their higher-ups on the heirarchy.</p>
+        <p>Internet Service Providers possess banks of hardware to serve access to the network, and in the end connect to our personal devices through one means or another. ISPs typically provide internet through Wide Area Networks (WANs) which are then connected to homes, office buildings, and more. One of these smaller networks is called a Local Area Network (LAN).</p>
+        <p>Ultimately our personal devices connect to a router that manages the traffic in the Local Area Network. The hardware that connects to the internet such as laptops, smartphones, and tablets make up the bottom of the internet hardware heirarchy.</p>
+
+        <h4>The Roles of Protocols</h4>
+
+        <p>So when information is shared on the internet, how does it know where to go? In order to make this possible, hardware follows certain protocols that ensure information is delivered to the appropriate destination.</p>
+        <p>Each time you send information from an application on your computer to another computer on the internet, the information passes down four protocol layers, over the internet, and then back up the four protocol layers on the receiving machine. These layers address how to display the data, what app it should be delivered to, what computer it should be delivered to, and the conversion between binary data and network signals. Here is a look at those layers:</p>
+        <table>
+          <thead>
+            <th>Layer</th>
+            <th>Description</th>
+          </thead>
+          <tr>
+            <td>Application Protocol</td>
+            <td>Protocols specific to a given application (email, www, FTP, etc.)</td>
+          </tr>
+          <tr>
+            <td>Transmission Control Protocol</td>
+            <td>
+              <p>Directs data to a specific application via port number.</p>
+              <p>"What app should this go to?"</p>
+            </td>
+          </tr>
+          <tr>
+            <td>Internet Protocol</td>
+            <td>
+              <p>Directs data to the appropriate IP address on the internet.</p>
+              <p>"What computer should this go to?"</p>
+            </td>
+          </tr>
+          <tr>
+            <td>Hardware Layer</td>
+            <td>Converts binary data to network signals and back again.</td>
+          </tr>
+        </table>
+        <p>As an example, when you send an email it starts at the top of the stack. As it travels down the stack, it may be broken up into smaller chunks called data packets. The applications protocol layer knows that these packets are an email, and the TCP layer adds a header to each packet with an application-specific port number. This is done so the receiving computer knows what application to send it to. The next step in the process is to tag each packet so that it is sent over the internet to the correct computer.</p>
+        <p>Each piece of hardware must have its own unique address for this to work. This address is called an IP address (for Internet Protocol). Devices permanently connected to a LAN might have a permanent IP address, but it is not important that IP addresses be permanent; only that they are unique to a specific device while it is connected to the internet.</p>
+
+        <blockquote>NOTE: an IP address is of the form <span>n.n.n.n</span>, where each <span>n</span> is a number between 0 and 255. This range arises from the fact that each <span>n</span> is expressed as an octet of binary numbers (either 0s or 1s). It is only possible to express <span>2<sup>8</sup></span> (256) unique combinations in a binary octet, so each combination represents a number in that range.</blockquote>
+
+        <p>Now, here is where routers (more hardware) become extremely important. After your data packets are translated into network signals, they are sent to your router.</p>
+        <p>Routers typically exist as buffers and information managers between networks. For example, your home router knows the IP addresses of all devices connected to it, and probably bridges between your Local Area Network and the ISP's Wide Area Network. When it receives packets of data, it determines whether it knows the destination IP address tagged on each packet. If it does, it sends it to the correct device in your network. If not, it follows a default action &mdash; usually to send the packets up the infrastructure heirarchy. The next router does the same, sending it upward again if necessary.</p>
+        <p></p>
+
+        <a href="http://jeremymcintyre.github.io/blog/blog-index.html">back</a>
+      </div>
+    </article>
+
+    <footer>
+      <a href="https://plus.google.com/u/0/113788165639624262148/posts"><img src="https://raw.githubusercontent.com/jeremymcintyre/jeremymcintyre.github.io/master/blog/imgs/google-plus-32.png" alt=""></a>
+      <a href="https://www.linkedin.com/in/jeremymcintyre"><img src="https://raw.githubusercontent.com/jeremymcintyre/jeremymcintyre.github.io/master/blog/imgs/linkedin-32.png" alt=""></a>
+      <a href="https://twitter.com/alt_jmac"><img src="https://raw.githubusercontent.com/jeremymcintyre/jeremymcintyre.github.io/master/blog/imgs/twitter-32.png" alt=""></a>
+      <a href="https://github.com/jeremymcintyre"><img src="https://raw.githubusercontent.com/jeremymcintyre/jeremymcintyre.github.io/master/blog/imgs/github-32.png" alt=""></a>
+    </footer>
+
+
+  </body>
+
+
+</html>
