@@ -26,7 +26,7 @@
     <article>
       <h2>The "what" and "how" of the Internet</h2>
       <div class="serif">
-        <h3>29 Nov 2014</h3>
+        <h3>30 Nov 2014</h3>
         <hr>
         <p>Most people are comfortable with their understanding of what the internet is, and are content to know that it works without knowing precisely <span>how</span> or <span>why</span> it works.</p>
         <p>In stopping to think about it, one could suppose that it is a network of interconnected networks. This much seems obvious from its name.</p>
@@ -107,8 +107,17 @@
         <blockquote>NOTE: an IP address is of the form <span>n.n.n.n</span>, where each <span>n</span> is a number between 0 and 255. This range arises from the fact that each <span>n</span> is expressed as an octet of binary numbers (either 0s or 1s). It is only possible to express <span>2<sup>8</sup></span> (256) unique combinations in a binary octet, so each combination represents a number in that range.</blockquote>
 
         <p>Now, here is where routers (more hardware) become extremely important. After your data packets are translated into network signals, they are sent to your router.</p>
-        <p>Routers typically exist as buffers and information managers between networks. For example, your home router knows the IP addresses of all devices connected to it, and probably bridges between your Local Area Network and the ISP's Wide Area Network. When it receives packets of data, it determines whether it knows the destination IP address tagged on each packet. If it does, it sends it to the correct device in your network. If not, it follows a default action &mdash; usually to send the packets up the infrastructure heirarchy. The next router does the same, sending it upward again if necessary.</p>
-        <p></p>
+        <p>Routers typically exist as buffers and information managers between networks. For example, your home router knows the IP addresses of all devices connected to it, and probably bridges between your Local Area Network and the ISP's Wide Area Network. When it receives packets of data, it determines whether it knows the destination IP address tagged on each packet. If it does, it sends it to the correct device in your network. If not, it follows a default action &mdash; usually to send the packets up the infrastructure heirarchy. The next router does the same, sending it upward again if necessary. In this way, routers direct packets of information across the internet.</p>
+
+        <h4>But I don't know any IP addresses...</h4>
+
+        <p>Good point. How does it get worked out what IP address we want to interact with?</p>
+        <p>The answer is the Domain Name System (DNS), which maps IP addresses with their domain names so we don't have to consider IP addresses when using the internet. For example, google.com is a domain with the top-level domain of .COM.</p>
+        <p>When navigating the internet, our browsers send requests to DNS servers to get the IP addresses that match up with the names we provide in the Uniform Record Locator (URL). If the DNS server doesn't know the IP address, it passes it around to other DNS servers, or else returns an error that the domain name doesn't exist.</p>
+
+        <h4>Summary</h4>
+
+        <p>The internet is a network of networks made up of hardware and protocols that emsure information is delivered where it is intended to go. Routers, servers, and other types of hardware assist in all of this. Obviously we could go into much more detail about how certain protocols work like HTTP/HTTPS, FTP, and even how caching works - but this is just intended to be a short introduction to how the internet works and what it is. I hope it was clear and interesting, and otherwise, thanks for reading!</p>
 
         <a href="http://jeremymcintyre.github.io/blog/blog-index.html">back</a>
       </div>
