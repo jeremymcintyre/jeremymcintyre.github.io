@@ -108,6 +108,8 @@
 
         <p>Now, here is where routers (more hardware) become extremely important. After your data packets are translated into network signals, they are sent to your router.</p>
         <p>Routers typically exist as buffers and information managers between networks. For example, your home router knows the IP addresses of all devices connected to it, and probably bridges between your Local Area Network and the ISP's Wide Area Network. When it receives packets of data, it determines whether it knows the destination IP address tagged on each packet. If it does, it sends it to the correct device in your network. If not, it follows a default action &mdash; usually to send the packets up the infrastructure heirarchy. The next router does the same, sending it upward again if necessary. In this way, routers direct packets of information across the internet.</p>
+        <p>Once the data packets arrive at the destination computer, they are converted back into binary data in the hardware layer, then stripped of their IP and TCP port headers as they move back up the stack, finally being reassembled and delivered to the application specified by its port number.</p>
+        <p>And that is how information gets sent over the internet!</p>
 
         <h4>But I don't know any IP addresses...</h4>
 
