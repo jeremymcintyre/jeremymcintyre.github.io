@@ -88,7 +88,8 @@ header {
 }
 
 p span {
-  color: #330023;
+  font-style: italic;
+  color: #95092b;
 }
 
 .social a {
@@ -147,7 +148,7 @@ p span {
 }
 
 .avatar img {
-  border: 2px solid black;
+  border: 2px solid #000;
   border-radius: 50%;
   float: right;
   margin: 0 auto;
