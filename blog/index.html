@@ -5,19 +5,22 @@
   <link rel="stylesheet" href="../stylesheets/normalize.css">
   <link rel="stylesheet" type="text/css" href="../stylesheets/index.css">
   <link href='http://fonts.googleapis.com/css?family=Lato:400,400italic|Lora' rel='stylesheet' type='text/css'>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js"></script>
   <title>JM | Homepage</title>
 </head>
 <body>
 
   <!-- MAIN LANDING PAGE consists of NAV and HEADER -->
 
-  <nav id="top">
+  <nav>
+    <a name="top" id="top"></a>
     <ul>
       <li><a href="http://jeremymcintyre.github.io/blog/index.html">HOME</a></li>
       <li><a href="http://jeremymcintyre.github.io/blog/blog-index.html">BLOG</a></li>
       <li><a href="http://jeremymcintyre.github.io/projects/projects.html">PROJECTS</a></li>
-      <li><a href="#about">ABOUT</a></li>
-      <li><a href="#contact">CONTACT</a></li>
+      <li><a class="scroll" href="#about">ABOUT</a></li>
+      <li><a class="scroll" href="#contact">CONTACT</a></li>
     </ul>
   </nav>
   <header>
@@ -30,7 +33,7 @@
         <a href="https://twitter.com/alt_jmac"><img src="https://raw.githubusercontent.com/jeremymcintyre/jeremymcintyre.github.io/master/blog/imgs/twitter-32.png" alt=""></a>
         <a href="https://github.com/jeremymcintyre"><img src="https://raw.githubusercontent.com/jeremymcintyre/jeremymcintyre.github.io/master/blog/imgs/github-32.png" alt=""></a>
       </div>
-      <p class="button"><a href="#about"><img src="../blog/imgs/arrow-down.png" alt=""></a></p>
+      <p class="button"><a class="scroll" href="#about"><img src="../blog/imgs/arrow-down.png" alt=""></a></p>
     </div>
   </header>
 
@@ -39,7 +42,7 @@
 
   <!-- ABOUT PAGE -------------------->
   <!-- EMPTY div for space and to host link -->
-  <div id="linkbox"><a id="about">About</a></div>
+  <div id="linkbox"><a name="about" id="about">About</a></div>
   <div id="aboutpage">
 
     <div class="avatar">
@@ -54,7 +57,7 @@
     </p>
 
     <p>Or, click the nifty button below to go to my contact page.</p>
-    <p class="button"><a href="#contact"><img src="../blog/imgs/arrow-down.png" alt=""></a></p>
+    <p class="button"><a class="scroll" href="#contact"><img src="../blog/imgs/arrow-down.png" alt=""></a></p>
   </div>
 
   <!-- END OF ABOUT PAGE -->
@@ -64,7 +67,7 @@
   <!-- CONTACT PAGE -->
   <div id="contactpage">
     <!-- EMPTY div for space and to host link -->
-    <div id="linkbox"><a id="contact">Contact</a></div>
+    <div id="linkbox"><a name="contact" id="contact">Contact</a></div>
 
     <h2>So many ways to connect.</h2>
     <p>Here are some more helpful ways.</p>
@@ -75,8 +78,25 @@
       <a href="https://github.com/jeremymcintyre"><img src="../blog/imgs/github-128-small.png" alt="GitHub"></a>
       <a href="mailto:jmcintyre.dev@gmail.com?Subject=Hi%20Jeremy!"><img src="../blog/imgs/gmail-128.png" alt="Mail"></a>
     </div>
-    <a id="to-top" href="#top">back to top</a>
+    <a class="scroll" id="to-top" href="#top">back to top</a>
   </div>
 
+  <script type="text/javascript">
+
+  $.browser.chrome = /chrom(e|ium)/.test(navigator.userAgent.toLowerCase());
+
+  $(document).ready(function ($) {
+      $(".scroll").click(function (event) {
+          event.preventDefault();
+          if ($.browser.chrome) {
+              $('html,body').animate({
+                scrollTop: $(this.hash).offset().top}, 1300);
+          } else {
+              $('html,body').animate({ scrollTop: $(this.hash).offset().top - 100 }, 1300);
+          }
+      });
+  });
+
+  </script>
 </body>
 </html>
