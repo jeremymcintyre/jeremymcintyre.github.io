@@ -2,18 +2,13 @@
 
 a {
   text-decoration: none;
-  color: #fff;
+  color: white;
 }
 
-html {
+html, body {
   margin: 0;
   height: 100%;
-}
-
-body {
   width: 100%;
-  margin: 0;
-  height: 100%;
   font-family: Lato;
 }
 
@@ -27,27 +22,23 @@ nav {
   bottom: 90%;
   width: 100%;
   z-index: 30;
-}
-
-nav ul li {
-  list-style: none;
-  display: inline-block;
-  margin: -3px;
-  padding: 0;
-}
-
-nav a {
-  margin: 0;
-  padding: 0 30px;
-  transition: 0.2s;
-}
-
-nav a:hover {
-  /*color: #FF9d54;*/
-  color: #FFa955;
-  font-size: 1.3em;
-  transition: 0.2s;
-  padding: 20px;
+  li {
+    list-style: none;
+    display: inline-block;
+    margin: -3px;
+    padding: 0;
+  }
+  a {
+    margin: 0;
+    padding: 0 30px;
+    transition: 0.2s;
+    &:hover {
+      color: #FFa955;
+      font-size: 1.3em;
+      transition: 0.2s;
+      padding: 20px;
+    }
+  }
 }
 
 /*HEADER*****************************/
@@ -71,19 +62,17 @@ header {
   z-index: 30;
   color: #000;
   background-color: #fff;
-  background-color: rgba(240,240,240,0.88);
+  background-color: rgba(240, 240, 240, 0.88);
   padding: 0 15px 10px 15px;
   font-size: 1.5em;
-  border: 6px solid #330023;;
-}
-
-#centermain h1 {
-  font-size: 2em;
-  color: #330023;
-}
-
-#centermain p:first-child {
-  margin: 0 30px;
+  border: 6px solid #330023;
+  h1 {
+    font-size: 2em;
+    color: #330023;
+  }
+  p:first-child {
+    margin: 0 30px;
+  }
 }
 
 p span {
@@ -98,6 +87,7 @@ p span {
 }
 
 /*Note that padding-top and height offset is to visually center the png image*/
+
 .button {
   background-color: #ffa74e;
   width: 50px;
@@ -106,14 +96,12 @@ p span {
   border: 5px solid #434343;
   border-radius: 50%;
   margin: 15px auto 10px auto;
-}
-
-.button:hover {
-  background-color: #ec6735;
-}
-
-.button a {
-  color: #333;
+  &:hover {
+    background-color: #ec6735;
+  }
+  a {
+    color: #333;
+  }
 }
 
 /********blank div******************/
@@ -125,7 +113,6 @@ p span {
 }
 
 /*******ABOUT PAGE*************/
-
 /*this is to set container for how far left/right img can float*/
 
 #aboutpage {
@@ -134,9 +121,9 @@ p span {
   width: 100%;
   height: 100%;
   min-height: 800px;
-}
-#aboutpage a {
-  color: purple;
+  a {
+    color: purple;
+  }
 }
 
 .avatar {
@@ -144,13 +131,12 @@ p span {
   margin: 0 auto;
   padding-top: 10px;
   padding-bottom: -5px;
-}
-
-.avatar img {
-  border: 2px solid #000;
-  border-radius: 50%;
-  float: right;
-  margin: 0 auto;
+  img {
+    border: 2px solid #000;
+    border-radius: 50%;
+    float: right;
+    margin: 0 auto;
+  }
 }
 
 h4 {
@@ -161,21 +147,20 @@ h4 {
 }
 
 /*Note that actual max-width is 600px due to padding*/
+
 #aboutpage p {
   max-width: 570px;
   margin: 15px auto;
   padding: 0 15px;
   line-height: 1.6em;
   font-family: Lora;
+  &:last-child {
+    padding: 0;
+    margin-top: 40px;
+  }
 }
 
 /*to remove padding from button*/
-#aboutpage p:last-child {
-  padding: 0;
-  margin-top: 40px;
-}
-
-
 /*****PICTURE DIV ELEMENT*********/
 
 #lancha {
@@ -188,9 +173,7 @@ h4 {
   display: inline-block;
 }
 
-
 /*****CONTACT PAGE****************/
-
 
 #contactpage {
   position: relative;
@@ -198,31 +181,30 @@ h4 {
   height: 100%;
   min-height: 800px;
   text-align: center;
-}
-
-#contactpage p {
-  max-width: 570px;
-  margin: 15px auto;
-  padding: 0 15px;
-  line-height: 1.5em;
-  font-family: Lora;
-  font-size: 1.3em;
-}
-
-
-#contactpage h2 {
-  display: block;
-  margin-top: 100px;
-  line-height: 1.5em;
-  font-size: 3em;
+  p {
+    max-width: 570px;
+    margin: 15px auto;
+    padding: 0 15px;
+    line-height: 1.5em;
+    font-family: Lora;
+    font-size: 1.3em;
+  }
+  h2 {
+    display: block;
+    margin-top: 100px;
+    line-height: 1.5em;
+    font-size: 3em;
+  }
 }
 
 #social-large {
   padding: 40px;
-}
-
-#social-large img {
-  padding: 5px 15px;
+  img {
+    padding: 5px 15px;
+    &:hover {
+      opacity: 0.75;
+    }
+  }
 }
 
 #to-top {
@@ -232,5 +214,8 @@ h4 {
   width: 100%;
   padding: 1% 0;
   font-size: 1.3em;
-  background-color: rgba(30,30,30,0.4);
+  background-color: rgba(30, 30, 30, 0.4);
+  &:hover {
+    opacity: 0.9;
+  }
 }
