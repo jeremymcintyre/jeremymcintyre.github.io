@@ -1,9 +1,10 @@
+$main-color: #3424bd;
+
 /*General*****************/
 
-a {
-  text-decoration: none;
-  color: white;
-}
+
+
+
 
 html, body {
   margin: 0;
@@ -13,6 +14,8 @@ html, body {
 }
 
 /*NAVIGATION BAR********************/
+
+
 
 nav {
   font-size: 1.5em;
@@ -33,7 +36,7 @@ nav {
     padding: 0 30px;
     transition: 0.2s;
     &:hover {
-      color: #FFa955;
+      color: $main-color;
       font-size: 1.3em;
       transition: 0.2s;
       padding: 20px;
@@ -219,3 +222,5 @@ h4 {
     opacity: 0.9;
   }
 }
+
+

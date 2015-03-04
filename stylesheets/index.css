@@ -67,9 +67,8 @@ header {
   #centermain p:first-child {
     margin: 0 30px; }
 
-p span {
-  font-style: italic;
-  color: #95092b; }
+  #centermain span {
+    color: #95092b; }
 
 .social a {
   padding: 5px;
