@@ -68,19 +68,19 @@ header {
 #centermain {
   max-width: 570px;
   margin: 200px auto;
-  text-align: center;
   z-index: 30;
   color: #000;
   background-color: #fff;
   background-color: rgba(240,240,240,0.88);
   padding: 0 15px 10px 15px;
-  font-size: 1.5em;
+  font-size: 1.2em;
   border: 6px solid #330023;;
 }
 
 #centermain h1 {
   font-size: 2em;
   color: #330023;
+  text-align: center;
 }
 
 #centermain p:first-child {
