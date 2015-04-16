@@ -1,105 +1,71 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="stylesheets/normalize.css">
-  <link rel="stylesheet" type="text/css" href="stylesheets/index.css">
-  <link href='http://fonts.googleapis.com/css?family=Lato:400,400italic|Lora' rel='stylesheet' type='text/css'>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js"></script>
-  <title>JM | Homepage</title>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Jeremy McIntyre</title>
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link href="css/custom-styles.css" rel="stylesheet">
+    <script type="text/javascript" src="build/react.js"></script>
+  </head>
+  <body>
+    <div id="hello"></div>
+    <div class="container-fluid">
 
-  <!-- MAIN LANDING PAGE consists of NAV and HEADER -->
+      <section id="about" class="row">
+        <div class="col-sm-4 col-sm-offset-1">
+          <h1>Jeremy <span class="glyphicon glyphicon-equalizer"></span> McIntyre</h1>
+          <h2>Full Stack Web Developer</h2>
+          <h3>SAN FRANCISCO, CA</h3>
+          <h4 class="email"><a href="mailto:jmcintyre.dev@gmail.com?Subject=Hi%20Jeremy!">jmcintyre.dev@gmail.com</a></h4>
+        </div>
+        <div class="col-sm-5">
+          <p class="lead">Hi, I'm Jeremy, a developer based in San Francisco. I enjoy building beautiful interfaces, taking on new challenges, and designing full apps from scratch. Currently, I'm working on personal projects while seeking full-time opportunities. I also really like writing and am training for my next marathon in my free time.</p>
+        </div>
+      </section>
 
-  <nav>
-    <a name="top" id="top"></a>
-    <ul>
-      <li><a href="http://jeremymcintyre.github.io/index.html">HOME</a></li>
-      <li><a href="http://jeremymcintyre.github.io/blog/index.html">BLOG</a></li>
-      <li><a href="http://jeremymcintyre.github.io/projects/index.html">PROJECTS</a></li>
-      <li><a class="scroll" href="#about">ABOUT</a></li>
-      <li><a class="scroll" href="#contact">CONTACT</a></li>
-    </ul>
-  </nav>
-  <header>
-    <div id="centermain">
-      <h1>Jeremy McIntyre</h1>
-      <p>I see beauty in thoughtful engineering, efficient systems, and elegant design. My desire to contribute to that beauty is what led me to step away from biochemistry, embark on some soul-searching adventures in Central and South America, and ultimately become a developer. This is my first personal site, so welcome! </p><p><span>New website and blog coming soon!</span></p>
-      <div class="social">
-        <a href="https://plus.google.com/u/0/113788165639624262148/posts"><img src="https://raw.githubusercontent.com/jeremymcintyre/jeremymcintyre.github.io/master/blog/imgs/google-plus-32.png" alt=""></a>
-        <a href="https://www.linkedin.com/in/jeremymcintyre"><img src="https://raw.githubusercontent.com/jeremymcintyre/jeremymcintyre.github.io/master/blog/imgs/linkedin-32.png" alt=""></a>
-        <a href="https://twitter.com/alt_jmac"><img src="https://raw.githubusercontent.com/jeremymcintyre/jeremymcintyre.github.io/master/blog/imgs/twitter-32.png" alt=""></a>
-        <a href="https://github.com/jeremymcintyre"><img src="https://raw.githubusercontent.com/jeremymcintyre/jeremymcintyre.github.io/master/blog/imgs/github-32.png" alt=""></a>
-      </div>
-      <p class="button"><a class="scroll" href="#about"><img src="blog/imgs/arrow-down.png" alt=""></a></p>
-    </div>
-  </header>
+      <section id="projects" class="row">
+      </section>
 
-  <!-- END OF MAIN LANDING PAGE. BELOW ARE SCROLL PAGES -->
+      <section id="writing" class="row">
+        <div class="col-sm-4 col-sm-offset-1">
+          <h1>Writing <span class="glyphicon glyphicon-paperclip"></span></h1>
+        </div>
+        <div class="col-sm-5">
+          <p class="lead">Coming soon!</p>
+          <p>I enjoy writing and believe it helps solidify learning in addition to helping spread knowledge. I am in the process of designing a new blog, which I will link to and begin filling up as soon as it's finished!</p>
+        </div>
+      </section>
+      <section id="contact" class="row">
+        <h1><span class="glyphicon glyphicon-signal"></span> Get in touch <br><small>via</small></h1>
+        <div class="col-xs-2 col-xs-offset-2 col-sm-1 col-sm-offset-4">
+          <a href="https://www.linkedin.com/in/jeremymcintyre"><i class="fa fa-linkedin fa-3x"></i></a>
+        </div>
+        <div class="col-xs-2 col-sm-1">
+          <a href="https://twitter.com/alt_jmac"><i class="fa fa-twitter fa-3x"></i></a>
+        </div>
+        <div class="col-xs-2 col-sm-1">
+          <a href="https://github.com/jeremymcintyre"><i class="fa fa-github fa-3x"></i></a>
+        </div>
+        <div class="col-xs-2 col-sm-1">
+          <a href="mailto:jmcintyre.dev@gmail.com?Subject=Hi%20Jeremy!"><i class="fa fa-envelope fa-3x"></i></a>
+        </div>
+        <pre class="col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-4"><code>$ ls
+$ ls -a
+.new-talent
+$ more .new-talent
+THIS GUY
+:)</code></pre>
+        <p id="copyright" class="col-xs-12">&copy; Jeremy McIntyre 2015</p>
+      </section>
 
+    </div><!-- /.container -->
 
-  <!-- ABOUT PAGE -------------------->
-  <!-- EMPTY div for space and to host link -->
-  <div id="linkbox"><a name="about" id="about">About</a></div>
-  <div id="aboutpage">
-
-    <div class="avatar">
-      <img alt="Jeremy McIntyre " src="https://secure.gravatar.com/avatar/6007ce9a428614cb6a03fbfa7d46527f.png?r=PG&amp;d=mm&amp;s=150" title="Jeremy McIntyre ">
-    </div>
-    <h4>Hi there. I'm Jeremy. This section is a little bit about me.</h4>
-    <p>The first thing you should know is that I got into development because I love it, and I figure if you want to be great at what you do, you better start by choosing what you love.
-    </p>
-    <p>The second thing to note is that I chose Dev Bootcamp as deliberately as my career path. They encourage curiousity, passion-driven learning, and cultivation of emotional intelligence so that graduates are not only excellent learners, but great to work with. Considering what a pleasure it is working with my fellow boots, I'd say it works.
-    </p>
-
-    <p>Other things I love: well, "free time" is a free-for-all of marathons, music, exploring, and mobilizing people.</p>
-
-    <p>Please check out my <a href="http://jeremymcintyre.github.io/blog/index.html">blog</a> and <a href="http://jeremymcintyre.github.io/projects/index.html">projects</a> page to see what I learned before arriving at Dev Bootcamp (with 80-100 hour weeks, I must apologize that I was not able to keep up with this blog during my time onsite!)
-    </p>
-
-    <p>Or, click the nifty button below to go to my contact page.</p>
-    <p class="button"><a class="scroll" href="#contact"><img src="blog/imgs/arrow-down.png" alt=""></a></p>
-  </div>
-
-  <!-- END OF ABOUT PAGE -->
-  <!-- PICTURE DIV -->
-  <div id="lancha"></div>
-
-  <!-- CONTACT PAGE -->
-  <div id="contactpage">
-    <!-- EMPTY div for space and to host link -->
-    <div id="linkbox"><a name="contact" id="contact">Contact</a></div>
-
-    <h2>Send me a message!</h2>
-    <p>Any of these will do the trick.</p>
-    <div id="social-large">
-      <a href="https://plus.google.com/u/0/113788165639624262148/posts"><img src="blog/imgs/google-128-small.png" alt="Google Plus"></a>
-      <a href="https://www.linkedin.com/in/jeremymcintyre"><img src="blog/imgs/linkedin-128-small.png" alt="Linked In"></a>
-      <a href="https://twitter.com/alt_jmac"><img src="blog/imgs/twitter-128-small.png" alt="Twitter"></a>
-      <a href="https://github.com/jeremymcintyre"><img src="blog/imgs/github-128-small.png" alt="GitHub"></a>
-      <a href="mailto:jmcintyre.dev@gmail.com?Subject=Hi%20Jeremy!"><img src="blog/imgs/gmail-128.png" alt="Mail"></a>
-    </div>
-    <a class="scroll" id="to-top" href="#top">back to top</a>
-  </div>
-
-  <script type="text/javascript">
-
-  $.browser.chrome = /chrom(e|ium)/.test(navigator.userAgent.toLowerCase());
-
-  $(document).ready(function ($) {
-      $(".scroll").click(function (event) {
-          event.preventDefault();
-          if ($.browser.chrome) {
-              $('html,body').animate({
-                scrollTop: $(this.hash).offset().top}, 1300);
-          } else {
-              $('html,body').animate({ scrollTop: $(this.hash).offset().top - 100 }, 1300);
-          }
-      });
-  });
-
-  </script>
-</body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript" src="build/components.js"></script>
+  </body>
 </html>
