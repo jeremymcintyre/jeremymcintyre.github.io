@@ -1,40 +1,39 @@
-var Project = React.createClass({
+var Project = React.createClass({displayName: "Project",
   render: function() {
     var data = this.props.data;
     return (
-      <a href={data.href}>
-        <div className="project">
-          <img src={data.src} alt={data.alt} />
-          <h4>{data.title}</h4>
-          <p>{data.description}<br/>{data.tech}</p>
-        </div>
-      </a>
+      React.createElement("div", {className: "project col-sm-6 col-md-6"}, 
+        React.createElement("a", {href: data.href}, 
+            React.createElement("img", {src: data.src, alt: data.alt}), 
+            React.createElement("h4", null, data.title), 
+            React.createElement("p", null, data.description, React.createElement("br", null), data.tech)
+        )
+      )
     );
   }
 });
 
-var ProjectColumn = React.createClass({
+var ProjectColumn = React.createClass({displayName: "ProjectColumn",
   render: function() {
     var projects = this.props.projects;
     return (
-      <div className={this.props.classList}>
-        {projects.map(function(project) {
-          return <Project key={project.id} data={project}/>
-        })}
-      </div>
+      React.createElement("div", {className: "col-md-8 col-md-offset-2"}, 
+        projects.map(function(project) {
+          return React.createElement(Project, {key: project.id, data: project})
+        })
+      )
     );
   }
 });
 
-var ProjectDisplay = React.createClass({
+var ProjectDisplay = React.createClass({displayName: "ProjectDisplay",
   render: function() {
     return(
-      <div>
-        <h1><span className="glyphicon glyphicon-ok"></span> Projects</h1>
-        <h2><small>I currently enjoy building with Rails, PostgreSQL, ReactJS, and SCSS</small></h2>
-            <ProjectColumn classList="col-sm-6 col-md-4 col-md-offset-2" projects={projectColumn1} />
-        <ProjectColumn classList="col-sm-6 col-md-4" projects={projectColumn2} />
-      </div>
+      React.createElement("div", null, 
+        React.createElement("h1", null, React.createElement("span", {className: "glyphicon glyphicon-ok"}), " Projects"), 
+        React.createElement("h2", null, React.createElement("small", null, "I currently enjoy building with Rails, PostgreSQL, ReactJS, and SCSS")), 
+        React.createElement(ProjectColumn, {projects: projectColumn1})
+      )
     )
   }
 })
@@ -58,10 +57,7 @@ var projectColumn1 = [
     title: "Hummingbird",
     description: "Schedule text messages for precision date/time delivery. (February)",
     tech: "Rails, Ionic, Angular"
-  }
-];
-
-var projectColumn2 = [
+  },
   {
     id: 3,
     src: "img/northstar-screen.png",
@@ -86,6 +82,6 @@ var projectColumn2 = [
 
 
 React.render(
-  <ProjectDisplay />,
+  React.createElement(ProjectDisplay, null),
   document.getElementById('projects')
 );
